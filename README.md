@@ -1,3 +1,8 @@
+# Usage
+```
+stow <config>
+## user --rebase to adopt other configs
+```
 # Dependenys
 ## hypr
 - hyprland
