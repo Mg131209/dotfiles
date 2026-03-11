@@ -14,6 +14,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
 # Dependenys
+```
+paru -S wofi waybar pulseaudio yazi wlogout neovim nwg-look nwg-displays nmtui-go swaync ttf-jetbrains-mono zsh stow
+``
 ## hypr
 - hyprland
 - hyprpaper
@@ -26,4 +29,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 - pulseaudio
 - yazi
 - wlogout
-- Nvim 
+- Nvim
+- nwg-look
+- nwg-displays
+- nmtui-go
+- swaync
+- ttf-jetbrains-mono
+- zsh
+- stow
