@@ -3,7 +3,11 @@
 stow <config>
 ## use --rebase to adopt other configs
 ```
-
+## Fixe playback isues
+```
+sudo pacman -S pipewire pipewire-pulse wireplumber
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+```
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
