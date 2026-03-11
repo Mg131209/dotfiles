@@ -129,6 +129,6 @@
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "wofi-wifi-menu",
+    "on-click": "kitty -e nmtui",
   },
 }
