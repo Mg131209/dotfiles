@@ -18,6 +18,7 @@ window#waybar {
   border-radius: 6px;
   background-color: #1e1e2e;
   color: #cdd6f4;
+  transition: all 0.2s ease;
 }
 
 #workspaces button:hover {
@@ -52,6 +53,119 @@ window#waybar {
   margin: 0.4rem 0.25rem;
   border-radius: 6px;
   background-color: #1e1e2e;
+  transition: all 0.2s ease;
+}
+
+/* Hover effects for all modules */
+#clock:hover,
+#pulseaudio:hover,
+#custom-logo:hover,
+#custom-spotify:hover,
+#custom-notification:hover,
+#cpu:hover,
+#tray:hover,
+#memory:hover,
+#window:hover,
+#mpris:hover,
+#battery:hover {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+/* Special hover effects for specific modules to maintain their color identity */
+#clock:hover {
+  background-color: #74c7ec;
+  color: #1e1e2e;
+}
+
+#cpu:hover {
+  background-color: #94e2d5;
+  color: #1e1e2e;
+}
+
+#memory:hover {
+  background-color: #cba6f7;
+  color: #1e1e2e;
+}
+
+#pulseaudio:hover {
+  background-color: #b4befe;
+  color: #1e1e2e;
+}
+
+#custom-logo:hover {
+  background-color: #89b4fa;
+  color: #1e1e2e;
+}
+
+#custom-power:hover {
+  background-color: #f38ba8;
+  color: #1e1e2e;
+}
+
+#custom-spotify:hover {
+  background-color: #1ed760;
+  color: #1e1e2e;
+}
+
+#custom-notification:hover {
+  background-color: #f9e2af;
+  color: #1e1e2e;
+}
+
+#tray:hover {
+  background-color: #cdd6f4;
+  color: #1e1e2e;
+}
+
+#window:hover {
+  background-color: #cdd6f4;
+  color: #1e1e2e;
+}
+
+#mpris:hover {
+  background-color: #a6e3a1;
+  color: #1e1e2e;
+}
+
+#mpris.playing:hover {
+  background-color: #a6e3a1;
+  color: #1e1e2e;
+}
+
+#mpris.paused:hover {
+  background-color: #9399b2;
+  color: #1e1e2e;
+}
+
+#network {
+  color: #f5c2e7;
+}
+
+#network:hover {
+  color: #1e1e2e;
+  background-color: #f5c2e7;
+}
+
+/* Battery hover effect - overrides the general battery hover */
+#battery:hover {
+  color: #1e1e2e;
+  background-color: #a6e3a1;
+}
+
+#battery.charging:hover {
+  background-color: #94e2d5;
+  color: #1e1e2e;
+}
+
+#battery.warning:hover {
+  background-color: #f9e2af;
+  color: #1e1e2e;
+}
+
+#battery.critical:hover {
+  background-color: #f38ba8;
+  color: #1e1e2e;
 }
 
 #mpris.playing {
@@ -99,21 +213,17 @@ window#waybar.empty #window {
   color: #a6adc8;
 }
 
+#pulseaudio.muted:hover {
+  background-color: #a6adc8;
+  color: #1e1e2e;
+}
+
 #custom-logo {
   color: #89b4fa;
 }
 
 #custom-power {
   color: #f38ba8;
-}
-
-#network {
-  color: #f5c2e7;
-}
-
-#network:hover {
-  color: #1e1e2e;
-  background-color: #f5c2e7;
 }
 
 /* Battery styling */
@@ -131,11 +241,6 @@ window#waybar.empty #window {
 
 #battery.critical {
   color: #f38ba8;
-}
-
-#battery:hover {
-  color: #1e1e2e;
-  background-color: #a6e3a1;
 }
 
 tooltip {
