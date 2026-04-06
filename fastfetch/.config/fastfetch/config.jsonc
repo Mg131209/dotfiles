@@ -1,29 +1,19 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
- "logo":{
-    "type" : "builtin",
-    "source":"arch3"
+  "logo": {
+    "type": "builtin",
+    "source": "arch_small"
   },
   "modules": [
     "title",
     "separator",
     "os",
     "kernel",
-    "uptime",
-    "de",
-    "wm",
     "wmtheme",
     "theme",
-    "font",
-    "cursor",
-    "terminal",
-    "terminalfont",
     "cpu",
     "gpu",
     "memory",
-    "disk",
-    "locale",
-    "break",
     "colors"
   ]
 }
