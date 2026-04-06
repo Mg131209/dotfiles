@@ -18,16 +18,17 @@
     "custom/notification",
     "custom/power",
   ],
-  "battery": {
+"battery": {
     "interval": 60,
     "states": {
-      "warning": 30,
-      "critical": 15,
+        "warning": 30,
+        "critical": 15
     },
     "format": "{capacity}% {icon}",
     "format-icons": ["", "", "", "", ""],
-    "max-length": 25,
-  },
+    "format-charging": "{capacity}%  {icon}",
+    "max-length": 25
+},
   "custom/spotify": {
     "format": "  {}",
     "return-type": "json",
