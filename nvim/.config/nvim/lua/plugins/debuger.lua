@@ -19,12 +19,6 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-			vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, {})
-			vim.keymap.set("n", "<leader>dc", dap.continue, {})
-      vim.keymap.set("n", "<leader>dso", dap.step_over, {})
-      vim.keymap.set("n", "<leader>dsi", dap.step_into, {})
-      vim.keymap.set("n", "<leader>dsr", dap.step_out, {})
-      vim.keymap.set("n", "<leader>dr", dap.repl.open, {})
 
 			dap.listeners.before.attach.dapui_config = function()
 				dapui.open()
