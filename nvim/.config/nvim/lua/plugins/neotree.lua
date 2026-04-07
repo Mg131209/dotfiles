@@ -8,6 +8,13 @@ return {
     },
     lazy = false, -- neo-tree will lazily load itself
     config = function()
-      vim.keymap.set('n', '<leader>e', ':Neotree filesystem toggle left <cr>', {})
+      require("neo-tree").setup({
+        window = {
+          mappings = {
+            ["l"] = "open",
+            ["h"] = "close_node",
+          },
+        },
+      })
     end
   }
