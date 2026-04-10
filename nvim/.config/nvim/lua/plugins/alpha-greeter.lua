@@ -2,7 +2,7 @@ return {
     'goolord/alpha-nvim',
     dependencies = {
         'nvim-mini/mini.icons',
-        'nvim-lua/plenary.nvim'
+        'nvim-lua/plenary.nvim',
     },
     config = function ()
       local alpha = require("alpha")
