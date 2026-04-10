@@ -1,50 +1,73 @@
+local map = vim.keymap.set -- Alias for easier keymap setting
+
 -- Window navigation with Ctrl + hjkl
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
+map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
+map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Lsp keymaps
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover" })
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
+map("n", "rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 -- Debugger
 local dap = require("dap")
 local dapui = require("dapui")
 
-vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Set break point" })
-vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Dap continue" })
-vim.keymap.set("n", "<leader>dso", dap.step_over, { desc = "Dap step over" })
-vim.keymap.set("n", "<leader>dsi", dap.step_into, { desc = "Dap step into" })
-vim.keymap.set("n", "<leader>dsr", dap.step_out, { desc = "Dap step out" })
-vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Dap open repl" })
+map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Set break point" })
+map("n", "<leader>dc", dap.continue, { desc = "Dap continue" })
+map("n", "<leader>dso", dap.step_over, { desc = "Dap step over" })
+map("n", "<leader>dsi", dap.step_into, { desc = "Dap step into" })
+map("n", "<leader>dsr", dap.step_out, { desc = "Dap step out" })
+map("n", "<leader>dr", dap.repl.open, { desc = "Dap open repl" })
 
 -- Filetree
-vim.keymap.set("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
+map("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
 
 -- Formatter
-vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format document" })
+map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format document" })
 
 -- Telescope
 local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<leader><leader>", telescope.find_files, { desc = "Find files" })
-vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Live grep" })
-vim.keymap.set("n", "<leader>fk", telescope.keymaps, { desc = "Search keymaps" })
+map("n", "<leader><leader>", telescope.find_files, { desc = "Find files" })
+map("n", "<leader>ff", telescope.find_files, { desc = "Find files" })
+map("n", "<leader>fg", telescope.live_grep, { desc = "Live grep" })
+map("n", "<leader>fk", telescope.keymaps, { desc = "Search keymaps" })
 
 -- Lazygit
-vim.keymap.set("n", "<leader>gg", ":LazyGit <CR>", { desc = "Lazygit" })
+map("n", "<leader>gg", ":LazyGit <CR>", { desc = "Lazygit" })
 
 -- Buffers
-vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Close Buffer" })
-vim.keymap.set("n", "<leader>bD", "<cmd>%bdelete<CR>", { desc = "Close All Buffers" })
-vim.keymap.set("n", "<leader>bo", "<cmd>%bdelete|e#<CR>", { desc = "Close Other Buffers" })
-vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
-vim.keymap.set("n", "<leader>bl", "<cmd>ls<CR>", { desc = "List Buffers" })
-vim.keymap.set("n", "<leader>be", "<cmd>ene<CR>", { desc = "New Empty Buffer" })
-vim.keymap.set("n", "<leader>bx", "<cmd>bdelete!<CR>", { desc = "Force Close Buffer" })
+map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Close Buffer" })
+map("n", "<leader>bD", "<cmd>%bdelete<CR>", { desc = "Close All Buffers" })
+map("n", "<leader>bo", "<cmd>%bdelete|e#<CR>", { desc = "Close Other Buffers" })
+map("n", "<leader>be", "<cmd>ene<CR>", { desc = "New Empty Buffer" })
+map("n", "<leader>bx", "<cmd>bdelete!<CR>", { desc = "Force Close Buffer" })
+map ("n", "<leader>bl", "<cmd>ls<CR>", { desc = "List Buffers" })
+map("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next Buffer" })
+map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
+map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+map("n", "<S-tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+-- Harpoon
+local harpoon_mark = require("harpoon.mark")
+local harpoon_ui = require("harpoon.ui")
+map("n", "<leader>hs", harpoon_ui.toggle_quick_menu, { desc = "Toggle Harpoon menu" })
+map("n", "<leader>ha", harpoon_mark.add_file, { desc = "Add file to Harpoon" })
+map("n", "<leader>hn", harpoon_ui.nav_next, { desc = "Go to next Harpoon file" })
+map("n", "<leader>hp", harpoon_ui.nav_prev, { desc = "Go to previous Harpoon file" })
+
+-- Terminal
+map('n', '<leader>t', '<cmd>ToggleTerm direction=horizontal size=10<CR>', { desc = 'Toggle bottom terminal' })
+map('t', '<C-l>', [[<Cmd>ToggleTermToggleAll<CR>]], { desc = 'Clear terminal' })
+
+-- Terminal navigation (escape terminal mode)
+map('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
+map('t', '<C-h>', [[<Cmd>wincmd h<CR>]], { desc = 'Move left' })
+map('t', '<C-j>', [[<Cmd>wincmd j<CR>]], { desc = 'Move down' })
+map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], { desc = 'Move up' })
+map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], { desc = 'Move right' })
 -- =====================================================
 -- WHICH-KEY GROUPS (Shows categories when you press <leader>)
 -- =====================================================
@@ -58,7 +81,8 @@ wk.add({
 	{ "<leader>f", group = " Find" },
 	{ "<leader>c", group = " Code" },
 	{ "<leader>b", group = " Buffer" },
-
+	{ "<leader>h", group = " Harpoon" },
+  {" <leader>t", group = " Terminal" },
 })
 
 -- Optional: Add a group for Telescope find operations
