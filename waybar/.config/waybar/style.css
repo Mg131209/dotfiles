@@ -9,7 +9,7 @@
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  background-color: #11111b;
+  background-color: rgba(17,17,27,0.5);
 }
 
 #workspaces button {
