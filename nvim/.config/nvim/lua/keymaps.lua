@@ -3,6 +3,7 @@ local map = vim.keymap.set -- Alias for easier keymap setting
 -- General keymaps
 map("n", ",", "@@", { desc = "Repeat last macro" }) -- Press , to repeat the last macro
 map({"n","i","v"}, "<C-s>", "<cmd>w<CR>", { desc = "Save file" }) -- Ctrl + s to save in normal, insert, and visual modes
+map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggle line wrapping
 
 -- Window navigation with Ctrl + hjkl
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })

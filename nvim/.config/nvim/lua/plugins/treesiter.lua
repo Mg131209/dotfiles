@@ -21,5 +21,7 @@ return {
 				},
 			},
 		})
+
+    require("nvim-treesitter").install {"lua", "rust", "typescript"}
 	end,
 }
