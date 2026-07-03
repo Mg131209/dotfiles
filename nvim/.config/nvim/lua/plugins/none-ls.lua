@@ -27,6 +27,7 @@ return {
 		add_source(null_ls.builtins.formatting.rustfmt)
 		add_source(require("none-ls.diagnostics.eslint_d"))
 		add_source(require("none-ls.formatting.eslint_d"))
+		add_source(require("none-ls.code_actions.eslint_d"))
 
 		null_ls.setup({
 			sources = sources,
