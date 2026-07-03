@@ -13,6 +13,26 @@ return {
       config = function()
               -- This is your opts table
        require("telescope").setup {
+          -- defaults = {
+          --   vimgrep_arguments = {
+          --     "rg",
+          --     "--color=never",
+          --     "--no-heading",
+          --     "--with-filename",
+          --     "--line-number",
+          --     "--column",
+          --     "--smart-case",
+          --     "--hidden",
+          --     "--no-ignore",
+          --   },
+          --   file_ignore_patterns = { "%.git/" },
+          -- },
+          pickers = {
+            find_files = {
+              hidden = true,
+              no_ignore = false,
+            },
+          },
           extensions = {
             ["ui-select"] = {
               require("telescope.themes").get_dropdown {
