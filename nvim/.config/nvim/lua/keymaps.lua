@@ -4,6 +4,8 @@ local map = vim.keymap.set -- Alias for easier keymap setting
 map("n", ",", "@@", { desc = "Repeat last macro" })                     -- Press , to repeat the last macro
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })   -- Ctrl + s to save in normal, insert, and visual modes
 map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggle line wrapping
+map({"v", "n"}, "<leader>p", "\"_dP", { desc = "Paste without overwriting register" }) -- Paste in visual mode without overwriting the default register
+
 -- Makros
 map("v", "<leader>-", "c~~pa~~") -- Run macro in register q
 map("n", "<leader>a", "ggVG" ) -- Select all text
