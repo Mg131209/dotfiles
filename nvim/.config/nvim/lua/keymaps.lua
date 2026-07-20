@@ -17,6 +17,12 @@ map("n", "K", require("spell").suggest, { desc = "Hover / Spell suggest" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
 map("n", "rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+-- diagnostics
+map("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Next diagnostic" })
+map("n", "<leader>dm", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Previous diagnostic" })
+map("n", "<leader>dl", function()
+  vim.diagnostic.setloclist()
+end, { desc = "List diagnostics in file" })
 
 -- Filetree
 map("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
