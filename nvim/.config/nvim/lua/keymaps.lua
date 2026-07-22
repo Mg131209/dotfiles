@@ -7,8 +7,8 @@ map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggl
 map({"v", "n"}, "<leader>p", "\"_dP", { desc = "Paste without overwriting register" }) -- Paste in visual mode without overwriting the default register
 
 -- Makros
-map("v", "<leader>-", "c~~pa~~") -- Run macro in register q
-map("n", "<leader>a", "ggVG" ) -- Select all text
+map("v", "<leader>-", "c~~pa~~", {desc = "Put a line trhu text in markdown"})
+map("n", "<leader>a", "ggVG" , {desc = "Select all"}) -- Select all text
 
 -- Window navigation is handled by vim-tmux-navigator on <C-h/j/k/l>
 
@@ -67,12 +67,11 @@ local wk = require("which-key")
 
 wk.add({
   -- Main category groups
-  { "<leader>d", group = " Debug" },
+  { "<leader>d", group = " Diagnostics" },
   { "<leader>g", group = " Git" },
   { "<leader>f", group = " Find" },
   { "<leader>c", group = " Code" },
   { "<leader>b", group = " Buffer" },
-  { "<leader>h", group = " Harpoon" },
   { "<leader>t", group = " Terminal" },
 })
 
