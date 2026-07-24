@@ -55,13 +55,6 @@ map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
 
--- Terminal
-map("n", "<leader>t", "<cmd>ToggleTerm direction=horizontal size=10<CR>", { desc = "Toggle bottom terminal" })
-map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-map("t", "<C-l>", function()
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("clear<CR>", true, false, true), "t", false)
-end, { desc = "Clear terminal" })
-
 -- =====================================================
 -- WHICH-KEY GROUPS (Shows categories when you press <leader>)
 -- =====================================================
