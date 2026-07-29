@@ -68,7 +68,6 @@ wk.add({
   { "<leader>f", group = " Find" },
   { "<leader>c", group = " Code" },
   { "<leader>b", group = " Buffer" },
-  { "<leader>t", group = " Terminal" },
 })
 
 -- Optional: Add a group for Telescope find operations
