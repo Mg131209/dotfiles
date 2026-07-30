@@ -74,3 +74,46 @@ wk.add({
 wk.add({
   { "<leader><leader>", desc = "Find files" },
 })
+
+-- =====================================================
+-- TREESITTER TEXTOBJECTS (nvim-treesitter-textobjects, main branch)
+-- On the "main" branch there is no automatic keymaps table, so we call
+-- the select/move/swap modules directly. Setup (lookahead, set_jumps)
+-- lives in plugins/treesiter.lua.
+-- =====================================================
+
+-- Select textobjects: use with operators, e.g. daf, vic, yia
+local ts_select = function(textobj)
+  return function()
+    require("nvim-treesitter-textobjects.select").select_textobject(textobj, "textobjects")
+  end
+end
+
+map({ "x", "o" }, "af", ts_select("@function.outer"), { desc = "Around function (textobj)" })
+map({ "x", "o" }, "if", ts_select("@function.inner"), { desc = "Inside function (textobj)" })
+map({ "x", "o" }, "ac", ts_select("@class.outer"), { desc = "Around class (textobj)" })
+map({ "x", "o" }, "ic", ts_select("@class.inner"), { desc = "Inside class (textobj)" })
+map({ "x", "o" }, "aa", ts_select("@parameter.outer"), { desc = "Around parameter (textobj)" })
+map({ "x", "o" }, "ia", ts_select("@parameter.inner"), { desc = "Inside parameter (textobj)" })
+
+-- Move between textobjects
+local ts_move = function(direction, textobj)
+  return function()
+    require("nvim-treesitter-textobjects.move")[direction](textobj, "textobjects")
+  end
+end
+
+map({ "n", "x", "o" }, "]f", ts_move("goto_next_start", "@function.outer"), { desc = "Next function start" })
+map({ "n", "x", "o" }, "]F", ts_move("goto_next_end", "@function.outer"), { desc = "Next function end" })
+map({ "n", "x", "o" }, "]a", ts_move("goto_next_start", "@parameter.inner"), { desc = "Next parameter" })
+map({ "n", "x", "o" }, "[f", ts_move("goto_previous_start", "@function.outer"), { desc = "Previous function start" })
+map({ "n", "x", "o" }, "[F", ts_move("goto_previous_end", "@function.outer"), { desc = "Previous function end" })
+map({ "n", "x", "o" }, "[a", ts_move("goto_previous_start", "@parameter.inner"), { desc = "Previous parameter" })
+
+-- Swap parameter with next/previous
+map("n", "<leader>na", function()
+  require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+end, { desc = "Swap parameter with next" })
+map("n", "<leader>pa", function()
+  require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+end, { desc = "Swap parameter with previous" })
