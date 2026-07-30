@@ -42,6 +42,7 @@ map("n", "<leader>dO", dap.step_out, { desc = "Step Out" })
 map("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle REPL" })
 map("n", "<leader>dq", dap.terminate, { desc = "Terminate" })
 map("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
+map("n", "<leader>ds", "<cmd>DapGoDebugStdin<CR>", { desc = "Debug Go package (stdin support)" })
 
 -- Formatter
 map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format document" })

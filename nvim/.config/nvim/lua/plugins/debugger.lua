@@ -57,6 +57,40 @@ return {
 		local languages = {
 			go = function()
 				require("dap-go").setup()
+
+				-- Go programs that read from stdin (fmt.Scanln, bufio.NewReader(os.Stdin), ...)
+				-- never get real input with the default "Debug" configs above: nvim-dap
+				-- spawns `dlv dap` as a background job with no real terminal attached, so
+				-- any read from stdin returns immediately (EOF) instead of waiting for you
+				-- to type something.
+				--
+				-- Fix (as recommended by nvim-dap-go itself): run delve headless inside a
+				-- real Neovim terminal, so the debuggee's stdin/stdout are attached to an
+				-- actual tty, then have nvim-dap attach to that session remotely.
+				vim.api.nvim_create_user_command("DapGoDebugStdin", function()
+					local dap = require("dap")
+					local port = 38697
+					local dir = vim.fn.fnamemodify(vim.fn.expand("%:p:h"), ":.")
+
+					vim.cmd("botright new | resize 15")
+					vim.fn.termopen(string.format(
+						"dlv debug -l 127.0.0.1:%d --headless --api-version=2 --accept-multiclient %s",
+						port,
+						dir
+					))
+					vim.cmd("wincmd p") -- keep focus on the code window
+
+					-- give delve a moment to start listening before attaching
+					vim.defer_fn(function()
+						dap.run({
+							type = "go",
+							name = "Debug (stdin support)",
+							request = "attach",
+							mode = "remote",
+							port = port,
+						})
+					end, 1000)
+				end, { desc = "Debug current Go package with real stdin support (delve headless + remote attach)" })
 			end,
 		}
 
