@@ -10,6 +10,10 @@ map({"v", "n"}, "<leader>p", "\"_dP", { desc = "Paste without overwriting regist
 map("v", "<leader>-", "c~~pa~~", {desc = "Put a line trhu text in markdown"})
 map("n", "<leader>a", "ggVG" , {desc = "Select all"}) -- Select all text
 
+-- Quckfix list navigation
+map("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
+map("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
+
 -- Window navigation is handled by vim-tmux-navigator on <C-h/j/k/l>
 
 -- Lsp keymaps
