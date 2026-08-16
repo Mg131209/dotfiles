@@ -17,3 +17,16 @@ vim.keymap.set("n", "<C-v>", "<C-v>", {noremap = true, silent = true})
 -- Set spell checking for English (US)
 vim.cmd("setlocal spell spelllang=en_us")
 vim.cmd("set spell")
+
+-- Yank highlights
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 200,
+    })
+  end,
+})
+
